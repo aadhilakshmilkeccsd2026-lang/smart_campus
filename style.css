@@ -1192,3 +1192,124 @@ footer p {
         padding: 22px;
     }
 }
+
+/* =========================================================
+   22. GLOBAL PAGE CENTER ALIGNMENT FIX
+   ========================================================= */
+
+/* Main page layout */
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Center all common content containers */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center hero content */
+.hero-content {
+    width: 100%;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center page headers */
+.page-header {
+    width: 100%;
+}
+
+.page-header > .container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center section content */
+.section > .container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center dashboard and card layouts */
+.cards,
+.events-grid {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center profile layout */
+.profile-layout {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center registration layout */
+.registration-layout {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center login and registration forms */
+.form-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center campus search */
+.campus-search {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive alignment */
+@media (max-width: 768px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .cards,
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-layout,
+    .registration-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container {
+        width: 92%;
+    }
+}
