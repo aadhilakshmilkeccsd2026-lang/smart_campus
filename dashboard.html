@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | CampusSync</title>
+
+    <!-- LOGIN PROTECTION -->
+    <script>
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.replace("login.html");
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <!-- BRAND -->
+
+        <a href="index.html" class="brand">
+
+            <div class="logo-placeholder"></div>
+
+            <div class="brand-text">
+
+                <span class="brand-name">
+                    CampusSync
+                </span>
+
+                <span class="brand-tagline">
+                    Your Campus, Connected.
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="nav-menu">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="campus.html">
+                Campus
+            </a>
+
+            <a href="events.html">
+                Events
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="#" class="login-button" onclick="logout()">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1>
+            Student Dashboard
+        </h1>
+
+        <p>
+            Welcome to your CampusSync student dashboard.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WELCOME SECTION
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <!-- WELCOME CARD -->
+
+        <div class="card" style="margin-bottom:30px;">
+
+            <div class="card-icon">
+                👋
+            </div>
+
+            <h3>
+                Welcome, <span id="welcomeName">Student</span>!
+            </h3>
+
+            <p>
+                Your CampusSync dashboard gives you quick access
+                to campus facilities, events and your student
+                profile.
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             QUICK ACCESS
+        ================================================== -->
+
+        <h2 class="section-title">
+            Quick Access
+        </h2>
+
+        <p class="section-subtitle">
+            Quickly access the most important CampusSync
+            features.
+        </p>
+
+
+        <div class="cards">
+
+
+            <!-- CAMPUS -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🏫
+                </div>
+
+                <h3>
+                    Explore Campus
+                </h3>
+
+                <p>
+                    Discover the library, computer lab, sports
+                    ground and other campus facilities.
+                </p>
+
+                <a
+                    href="campus.html"
+                    class="event-button"
+                >
+                    View Campus
+                </a>
+
+            </div>
+
+
+            <!-- EVENTS -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🎉
+                </div>
+
+                <h3>
+                    Campus Events
+                </h3>
+
+                <p>
+                    View upcoming technical, cultural, sports
+                    and career events.
+                </p>
+
+                <a
+                    href="events.html"
+                    class="event-button"
+                >
+                    View Events
+                </a>
+
+            </div>
+
+
+            <!-- PROFILE -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    👤
+                </div>
+
+                <h3>
+                    My Profile
+                </h3>
+
+                <p>
+                    View your personal information and
+                    CampusSync account details.
+                </p>
+
+                <a
+                    href="profile.html"
+                    class="event-button"
+                >
+                    View Profile
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CAMPUS OVERVIEW
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Campus Overview
+        </h2>
+
+        <p class="section-subtitle">
+            Explore some of the important facilities available
+            on your campus.
+        </p>
+
+
+        <div class="cards">
+
+
+            <!-- LIBRARY -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Central Library
+                </h3>
+
+                <p>
+                    Books, digital resources and study spaces
+                    for students.
+                </p>
+
+                <a
+                    href="campus.html"
+                    class="event-button"
+                >
+                    Explore
+                </a>
+
+            </div>
+
+
+            <!-- COMPUTER LAB -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Computer Lab
+                </h3>
+
+                <p>
+                    Modern computing facilities for academic
+                    and practical learning.
+                </p>
+
+                <a
+                    href="campus.html"
+                    class="event-button"
+                >
+                    Explore
+                </a>
+
+            </div>
+
+
+            <!-- SPORTS -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ⚽
+                </div>
+
+                <h3>
+                    Sports Ground
+                </h3>
+
+                <p>
+                    Space for sports, physical activities and
+                    student recreation.
+                </p>
+
+                <a
+                    href="campus.html"
+                    class="event-button"
+                >
+                    Explore
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     UPCOMING EVENTS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Upcoming Events
+        </h2>
+
+        <p class="section-subtitle">
+            Keep track of important events happening on campus.
+        </p>
+
+
+        <div class="events-grid">
+
+
+            <!-- EVENT 1 -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    OCT 10, 2026
+                </span>
+
+                <h3>
+                    Technical Symposium
+                </h3>
+
+                <p>
+                    Explore technology, innovation and student
+                    project presentations.
+                </p>
+
+                <a
+                    href="events.html"
+                    class="event-button"
+                >
+                    View Event
+                </a>
+
+            </div>
+
+
+            <!-- EVENT 2 -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    OCT 15, 2026
+                </span>
+
+                <h3>
+                    Cultural Fest
+                </h3>
+
+                <p>
+                    Celebrate creativity, culture, music and
+                    student performances.
+                </p>
+
+                <a
+                    href="events.html"
+                    class="event-button"
+                >
+                    View Event
+                </a>
+
+            </div>
+
+
+            <!-- EVENT 3 -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    OCT 20, 2026
+                </span>
+
+                <h3>
+                    Career Workshop
+                </h3>
+
+                <p>
+                    Learn about career opportunities, skills
+                    and professional development.
+                </p>
+
+                <a
+                    href="events.html"
+                    class="event-button"
+                >
+                    View Event
+                </a>
+
+            </div>
+
+
+            <!-- EVENT 4 -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    OCT 24, 2026
+                </span>
+
+                <h3>
+                    Coding Challenge
+                </h3>
+
+                <p>
+                    Test your programming knowledge through an
+                    exciting coding competition.
+                </p>
+
+                <a
+                    href="events.html"
+                    class="event-button"
+                >
+                    View Event
+                </a>
+
+            </div>
+
+
+            <!-- EVENT 5 -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    OCT 28, 2026
+                </span>
+
+                <h3>
+                    Sports Meet
+                </h3>
+
+                <p>
+                    Participate in various sports and
+                    recreational activities.
+                </p>
+
+                <a
+                    href="events.html"
+                    class="event-button"
+                >
+                    View Event
+                </a>
+
+            </div>
+
+
+            <!-- EVENT 6 -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    NOV 2, 2026
+                </span>
+
+                <h3>
+                    Innovation Expo
+                </h3>
+
+                <p>
+                    Discover creative student projects,
+                    inventions and innovative ideas.
+                </p>
+
+                <a
+                    href="events.html"
+                    class="event-button"
+                >
+                    View Event
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <strong>
+        CampusSync
+    </strong>
+
+    <p>
+        Your digital companion for exploring, connecting
+        and experiencing campus life.
+    </p>
+
+    <p>
+        © 2026 CampusSync. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   LOAD USER INFORMATION
+===================================================== */
+
+const storedUser =
+    localStorage.getItem("campusSyncUser");
+
+
+if (storedUser) {
+
+    try {
+
+        const user =
+            JSON.parse(storedUser);
+
+        let fullName = "";
+
+
+        if (user.firstName || user.lastName) {
+
+            fullName =
+                (user.firstName || "") +
+                " " +
+                (user.lastName || "");
+
+            fullName =
+                fullName.trim();
+
+        }
+
+        else if (user.fullName) {
+
+            fullName =
+                user.fullName;
+
+        }
+
+
+        if (fullName !== "") {
+
+            document.getElementById("welcomeName")
+                .textContent = fullName;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.log(
+            "Unable to load user information."
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout() {
+
+    localStorage.removeItem("campusSyncUser");
+
+    localStorage.removeItem("isLoggedIn");
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+
+
+</body>
+</html>

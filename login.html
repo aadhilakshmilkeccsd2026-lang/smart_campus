@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - CampusSync</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="brand">
+            <div class="logo-placeholder">CS</div>
+
+            <div class="brand-text">
+                <div class="brand-name">CampusSync</div>
+                <div class="brand-tagline">Your Campus, Connected.</div>
+            </div>
+        </a>
+
+        <div class="nav-menu">
+
+            <a href="index.html">Home</a>
+
+            <a href="login.html" class="active">Login</a>
+
+            <a href="register.html">Register</a>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- ================= LOGIN PAGE ================= -->
+<section class="registration-layout">
+
+    <div class="card registration-card">
+
+        <h1 class="section-title">Welcome Back</h1>
+
+        <p class="section-subtitle">
+            Login to access your CampusSync account.
+        </p>
+
+
+        <!-- Error / Success Message -->
+        <div id="loginMessage" class="message" style="display: none;"></div>
+
+
+        <!-- LOGIN FORM -->
+        <form id="loginForm">
+
+            <!-- Student ID / Phone -->
+            <div class="form-group">
+
+                <label for="loginId">
+                    Student ID or Phone Number
+                </label>
+
+                <input
+                    type="text"
+                    id="loginId"
+                    placeholder="Enter Student ID or phone number"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Password -->
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div style="position: relative;">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        minlength="6"
+                        required
+                        style="padding-right: 50px;"
+                    >
+
+                    <button
+                        type="button"
+                        id="togglePassword"
+                        aria-label="Show password"
+                        style="
+                            position:absolute;
+                            right:10px;
+                            top:50%;
+                            transform:translateY(-50%);
+                            border:none;
+                            background:none;
+                            cursor:pointer;
+                            font-size:18px;
+                        "
+                    >
+                        ◯
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Login Button -->
+            <button
+                type="submit"
+                class="btn btn-primary"
+                style="width:100%; border:none; cursor:pointer;"
+            >
+                Login
+            </button>
+
+        </form>
+
+
+        <!-- Register Link -->
+        <p style="text-align:center; margin-top:20px;">
+
+            Don't have an account?
+
+            <a href="register.html">
+                Create Account
+            </a>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <p>
+        Our digital companion for exploring, connecting and experiencing campus life
+    </p>
+
+    <p>
+        © 2026 CampusSync. All rights reserved.
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+
+    const loginForm = document.getElementById("loginForm");
+    const loginMessage = document.getElementById("loginMessage");
+
+    const passwordInput = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
+
+
+    // ================= SHOW / HIDE PASSWORD =================
+
+    togglePassword.addEventListener("click", function () {
+
+        if (passwordInput.type === "password") {
+
+            passwordInput.type = "text";
+
+            togglePassword.textContent = "◉";
+            togglePassword.setAttribute(
+                "aria-label",
+                "Hide password"
+            );
+
+        } else {
+
+            passwordInput.type = "password";
+
+            togglePassword.textContent = "◯";
+            togglePassword.setAttribute(
+                "aria-label",
+                "Show password"
+            );
+        }
+
+    });
+
+
+    // ================= LOGIN =================
+
+    loginForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+
+        const loginId =
+            document.getElementById("loginId").value.trim();
+
+        const password =
+            passwordInput.value;
+
+
+        // Get registered user
+        const savedUser =
+            localStorage.getItem("campusSyncUser");
+
+
+        // No account found
+        if (!savedUser) {
+
+            showMessage(
+                "No registered account found. Please create an account first.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        const user = JSON.parse(savedUser);
+
+
+        const storedStudentId =
+            user.studentId || "";
+
+        const storedPhone =
+            user.phone ||
+            user.phoneNumber ||
+            "";
+
+        const storedPassword =
+            user.password || "";
+
+
+        // Check Student ID OR Phone
+        const idMatches =
+            loginId === storedStudentId ||
+            loginId === storedPhone;
+
+
+        // Check login details
+        if (idMatches && password === storedPassword) {
+
+            // Save login status
+            localStorage.setItem(
+                "isLoggedIn",
+                "true"
+            );
+
+
+            // Go to dashboard
+            window.location.href =
+                "dashboard.html";
+
+        } else {
+
+            showMessage(
+                "Invalid Student ID/Phone Number or password.",
+                "error"
+            );
+        }
+
+    });
+
+
+    // ================= MESSAGE =================
+
+    function showMessage(message, type) {
+
+        loginMessage.textContent = message;
+
+        loginMessage.style.display = "block";
+
+        if (type === "error") {
+
+            loginMessage.style.background =
+                "#ffe8e8";
+
+            loginMessage.style.color =
+                "#a33";
+
+            loginMessage.style.border =
+                "1px solid #e5aaaa";
+
+        } else {
+
+            loginMessage.style.background =
+                "#e8f7e8";
+
+            loginMessage.style.color =
+                "#287a28";
+
+            loginMessage.style.border =
+                "1px solid #a8d5a8";
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Events | CampusSync</title>
+
+    <!-- LOGIN PROTECTION -->
+    <script>
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.replace("login.html");
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <!-- BRAND -->
+
+        <a href="index.html" class="brand">
+
+            <div class="logo-placeholder"></div>
+
+            <div class="brand-text">
+
+                <span class="brand-name">
+                    CampusSync
+                </span>
+
+                <span class="brand-tagline">
+                    Your Campus, Connected.
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="nav-menu">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="campus.html">
+                Campus
+            </a>
+
+            <a href="events.html" class="active">
+                Events
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a
+                href="#"
+                class="login-button"
+                onclick="logout()"
+            >
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1>
+            Campus Events
+        </h1>
+
+        <p>
+            Discover upcoming activities, competitions,
+            workshops and celebrations.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     UPCOMING EVENTS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Upcoming Events
+        </h2>
+
+        <p class="section-subtitle">
+            Stay updated with activities happening around
+            CampusSync.
+        </p>
+
+
+        <div class="events-grid">
+
+
+            <!-- =================================================
+                 EVENT 1
+            ================================================== -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    OCT 10, 2026
+                </span>
+
+                <h3>
+                    Technical Symposium
+                </h3>
+
+                <p>
+                    Explore technology, innovation and student
+                    project presentations.
+                </p>
+
+                <p>
+                    📍 Main Auditorium
+                </p>
+
+                <p>
+                    🕘 9:30 AM – 4:00 PM
+                </p>
+
+                <a
+                    href="event-register.html?event=technical-symposium"
+                    class="event-button"
+                >
+                    Register Now
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EVENT 2
+            ================================================== -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    OCT 15, 2026
+                </span>
+
+                <h3>
+                    Cultural Fest
+                </h3>
+
+                <p>
+                    Celebrate creativity, culture, music and
+                    student performances.
+                </p>
+
+                <p>
+                    📍 College Campus
+                </p>
+
+                <p>
+                    🕘 10:00 AM – 5:00 PM
+                </p>
+
+                <a
+                    href="event-register.html?event=cultural-fest"
+                    class="event-button"
+                >
+                    Register Now
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EVENT 3
+            ================================================== -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    OCT 20, 2026
+                </span>
+
+                <h3>
+                    Career Workshop
+                </h3>
+
+                <p>
+                    Learn about career opportunities, skills
+                    and professional development.
+                </p>
+
+                <p>
+                    📍 Seminar Hall
+                </p>
+
+                <p>
+                    🕘 10:00 AM – 1:00 PM
+                </p>
+
+                <a
+                    href="event-register.html?event=career-workshop"
+                    class="event-button"
+                >
+                    Register Now
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EVENT 4
+            ================================================== -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    OCT 24, 2026
+                </span>
+
+                <h3>
+                    Coding Challenge
+                </h3>
+
+                <p>
+                    Test your programming knowledge through an
+                    exciting coding competition.
+                </p>
+
+                <p>
+                    📍 Computer Lab
+                </p>
+
+                <p>
+                    🕘 9:00 AM – 3:00 PM
+                </p>
+
+                <a
+                    href="event-register.html?event=coding-challenge"
+                    class="event-button"
+                >
+                    Register Now
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EVENT 5
+            ================================================== -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    OCT 28, 2026
+                </span>
+
+                <h3>
+                    Sports Meet
+                </h3>
+
+                <p>
+                    Participate in various sports and
+                    recreational activities.
+                </p>
+
+                <p>
+                    📍 Sports Ground
+                </p>
+
+                <p>
+                    🕘 8:00 AM – 4:00 PM
+                </p>
+
+                <a
+                    href="event-register.html?event=sports-meet"
+                    class="event-button"
+                >
+                    Register Now
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EVENT 6
+            ================================================== -->
+
+            <div class="event-card">
+
+                <span class="event-date">
+                    NOV 2, 2026
+                </span>
+
+                <h3>
+                    Innovation Expo
+                </h3>
+
+                <p>
+                    Discover creative student projects,
+                    inventions and innovative ideas.
+                </p>
+
+                <p>
+                    📍 Innovation Centre
+                </p>
+
+                <p>
+                    🕘 10:00 AM – 4:00 PM
+                </p>
+
+                <a
+                    href="event-register.html?event=innovation-expo"
+                    class="event-button"
+                >
+                    Register Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EVENT CATEGORIES
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Event Categories
+        </h2>
+
+        <p class="section-subtitle">
+            Explore different types of campus activities.
+        </p>
+
+
+        <div class="cards">
+
+
+            <!-- TECHNICAL -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Technical
+                </h3>
+
+                <p>
+                    Symposiums, coding competitions,
+                    workshops and technology events.
+                </p>
+
+            </div>
+
+
+
+            <!-- CULTURAL -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🎭
+                </div>
+
+                <h3>
+                    Cultural
+                </h3>
+
+                <p>
+                    Cultural festivals, performances,
+                    music and creative activities.
+                </p>
+
+            </div>
+
+
+
+            <!-- SPORTS -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ⚽
+                </div>
+
+                <h3>
+                    Sports
+                </h3>
+
+                <p>
+                    Sports meets, competitions and
+                    recreational activities.
+                </p>
+
+            </div>
+
+
+
+            <!-- CAREER -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💼
+                </div>
+
+                <h3>
+                    Career
+                </h3>
+
+                <p>
+                    Career workshops, seminars and
+                    professional development programs.
+                </p>
+
+            </div>
+
+
+
+            <!-- INNOVATION -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    💡
+                </div>
+
+                <h3>
+                    Innovation
+                </h3>
+
+                <p>
+                    Project exhibitions, innovation programs
+                    and idea-based activities.
+                </p>
+
+            </div>
+
+
+
+            <!-- STUDENT ACTIVITIES -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    🌟
+                </div>
+
+                <h3>
+                    Student Activities
+                </h3>
+
+                <p>
+                    Activities designed to encourage student
+                    participation and campus engagement.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EVENT INFORMATION
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="info-card">
+
+            <h2>
+                Event Participation
+            </h2>
+
+            <p>
+                CampusSync allows registered students to
+                participate in upcoming campus activities.
+                Select an event and use the registration option
+                to submit your details.
+            </p>
+
+            <br>
+
+            <p>
+                Keep your student information updated in your
+                profile so event registration can be completed
+                easily.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <strong>
+        CampusSync
+    </strong>
+
+    <p>
+        Your digital companion for exploring, connecting
+        and experiencing campus life.
+    </p>
+
+    <p>
+        © 2026 CampusSync. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout() {
+
+    localStorage.removeItem("campusSyncUser");
+
+    localStorage.removeItem("isLoggedIn");
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus | CampusSync</title>
+
+    <!-- LOGIN PROTECTION -->
+    <script>
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.replace("login.html");
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <!-- BRAND -->
+
+        <a href="index.html" class="brand">
+
+            <div class="logo-placeholder"></div>
+
+            <div class="brand-text">
+
+                <span class="brand-name">
+                    CampusSync
+                </span>
+
+                <span class="brand-tagline">
+                    Your Campus, Connected.
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="nav-menu">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="campus.html" class="active">
+                Campus
+            </a>
+
+            <a href="events.html">
+                Events
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="#" class="login-button" onclick="logout()">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1>
+            Explore Our Campus
+        </h1>
+
+        <p>
+            Discover facilities, spaces and services available
+            for students.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CAMPUS SEARCH
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="campus-search">
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="campusSearch"
+                    placeholder="Search campus facilities..."
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    onclick="searchCampus()"
+                >
+                    Search
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SEARCH RESULT -->
+
+        <div
+            id="searchResult"
+            class="message"
+        ></div>
+
+
+
+        <!-- =================================================
+             CAMPUS FACILITIES
+        ================================================== -->
+
+        <div class="cards" id="campusCards">
+
+
+            <!-- CENTRAL LIBRARY -->
+
+            <div class="card campus-card">
+
+                <div class="card-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Central Library
+                </h3>
+
+                <p>
+                    A peaceful learning space with books,
+                    reference materials and digital resources
+                    for students.
+                </p>
+
+                <a
+                    href="#library"
+                    class="event-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+
+            <!-- COMPUTER LAB -->
+
+            <div class="card campus-card">
+
+                <div class="card-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Computer Lab
+                </h3>
+
+                <p>
+                    Modern computer facilities supporting
+                    programming, academic work and practical
+                    learning.
+                </p>
+
+                <a
+                    href="#computer-lab"
+                    class="event-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+
+            <!-- SPORTS GROUND -->
+
+            <div class="card campus-card">
+
+                <div class="card-icon">
+                    ⚽
+                </div>
+
+                <h3>
+                    Sports Ground
+                </h3>
+
+                <p>
+                    A dedicated area for sports, physical
+                    activities and student recreation.
+                </p>
+
+                <a
+                    href="#sports"
+                    class="event-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+
+            <!-- AUDITORIUM -->
+
+            <div class="card campus-card">
+
+                <div class="card-icon">
+                    🎭
+                </div>
+
+                <h3>
+                    Main Auditorium
+                </h3>
+
+                <p>
+                    A large venue for seminars, workshops,
+                    cultural programs and college events.
+                </p>
+
+                <a
+                    href="#auditorium"
+                    class="event-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+
+            <!-- CANTEEN -->
+
+            <div class="card campus-card">
+
+                <div class="card-icon">
+                    🍴
+                </div>
+
+                <h3>
+                    Campus Canteen
+                </h3>
+
+                <p>
+                    A convenient place for students to relax,
+                    meet friends and enjoy refreshments.
+                </p>
+
+                <a
+                    href="#canteen"
+                    class="event-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+
+            <!-- INNOVATION CENTRE -->
+
+            <div class="card campus-card">
+
+                <div class="card-icon">
+                    💡
+                </div>
+
+                <h3>
+                    Innovation Centre
+                </h3>
+
+                <p>
+                    A creative environment for student projects,
+                    innovation, ideas and experimentation.
+                </p>
+
+                <a
+                    href="#innovation"
+                    class="event-button"
+                >
+                    View Details
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FACILITY DETAILS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <!-- LIBRARY -->
+
+        <div
+            class="info-card"
+            id="library"
+            style="margin-bottom:20px;"
+        >
+
+            <h2>
+                📚 Central Library
+            </h2>
+
+            <p>
+                The Central Library provides students with
+                academic books, reference materials and
+                digital learning resources.
+            </p>
+
+            <div class="info-grid" style="margin-top:20px;">
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Facility
+                    </div>
+
+                    <div class="info-value">
+                        Library
+                    </div>
+
+                </div>
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Purpose
+                    </div>
+
+                    <div class="info-value">
+                        Study & Research
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- COMPUTER LAB -->
+
+        <div
+            class="info-card"
+            id="computer-lab"
+            style="margin-bottom:20px;"
+        >
+
+            <h2>
+                💻 Computer Lab
+            </h2>
+
+            <p>
+                The Computer Lab supports programming,
+                practical classes, academic projects and
+                technology-based learning.
+            </p>
+
+            <div class="info-grid" style="margin-top:20px;">
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Facility
+                    </div>
+
+                    <div class="info-value">
+                        Computer Laboratory
+                    </div>
+
+                </div>
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Purpose
+                    </div>
+
+                    <div class="info-value">
+                        Practical Learning
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SPORTS -->
+
+        <div
+            class="info-card"
+            id="sports"
+            style="margin-bottom:20px;"
+        >
+
+            <h2>
+                ⚽ Sports Ground
+            </h2>
+
+            <p>
+                The Sports Ground provides space for sports,
+                physical activities, competitions and
+                recreational activities.
+            </p>
+
+            <div class="info-grid" style="margin-top:20px;">
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Facility
+                    </div>
+
+                    <div class="info-value">
+                        Sports Ground
+                    </div>
+
+                </div>
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Purpose
+                    </div>
+
+                    <div class="info-value">
+                        Sports & Recreation
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- AUDITORIUM -->
+
+        <div
+            class="info-card"
+            id="auditorium"
+            style="margin-bottom:20px;"
+        >
+
+            <h2>
+                🎭 Main Auditorium
+            </h2>
+
+            <p>
+                The Main Auditorium is used for seminars,
+                workshops, cultural programs, guest lectures
+                and important college events.
+            </p>
+
+            <div class="info-grid" style="margin-top:20px;">
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Facility
+                    </div>
+
+                    <div class="info-value">
+                        Auditorium
+                    </div>
+
+                </div>
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Purpose
+                    </div>
+
+                    <div class="info-value">
+                        Events & Programs
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CANTEEN -->
+
+        <div
+            class="info-card"
+            id="canteen"
+            style="margin-bottom:20px;"
+        >
+
+            <h2>
+                🍴 Campus Canteen
+            </h2>
+
+            <p>
+                The Campus Canteen provides students with a
+                convenient place to have refreshments and
+                spend time between classes.
+            </p>
+
+            <div class="info-grid" style="margin-top:20px;">
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Facility
+                    </div>
+
+                    <div class="info-value">
+                        Canteen
+                    </div>
+
+                </div>
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Purpose
+                    </div>
+
+                    <div class="info-value">
+                        Refreshments
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- INNOVATION CENTRE -->
+
+        <div
+            class="info-card"
+            id="innovation"
+        >
+
+            <h2>
+                💡 Innovation Centre
+            </h2>
+
+            <p>
+                The Innovation Centre provides students with
+                a creative environment for projects,
+                experimentation, innovation and idea development.
+            </p>
+
+            <div class="info-grid" style="margin-top:20px;">
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Facility
+                    </div>
+
+                    <div class="info-value">
+                        Innovation Centre
+                    </div>
+
+                </div>
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Purpose
+                    </div>
+
+                    <div class="info-value">
+                        Innovation & Projects
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <strong>
+        CampusSync
+    </strong>
+
+    <p>
+        Your digital companion for exploring, connecting
+        and experiencing campus life.
+    </p>
+
+    <p>
+        © 2026 CampusSync. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   CAMPUS SEARCH
+===================================================== */
+
+function searchCampus() {
+
+    const searchInput =
+        document.getElementById("campusSearch");
+
+    const result =
+        document.getElementById("searchResult");
+
+    const cards =
+        document.querySelectorAll(".campus-card");
+
+    const searchText =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+
+    /* Empty search */
+
+    if (searchText === "") {
+
+        cards.forEach(function(card) {
+
+            card.style.display = "block";
+
+        });
+
+        result.className = "message";
+
+        result.textContent = "";
+
+        return;
+
+    }
+
+
+    let found = false;
+
+
+    cards.forEach(function(card) {
+
+        const cardText =
+            card.textContent.toLowerCase();
+
+
+        if (cardText.includes(searchText)) {
+
+            card.style.display = "block";
+
+            found = true;
+
+        }
+
+        else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    /* Search result */
+
+    if (found) {
+
+        result.className =
+            "message success";
+
+        result.textContent =
+            "Facility found.";
+
+    }
+
+    else {
+
+        result.className =
+            "message error";
+
+        result.textContent =
+            "No matching campus facility found.";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   ENTER KEY SEARCH
+===================================================== */
+
+document
+    .getElementById("campusSearch")
+    .addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+
+            searchCampus();
+
+        }
+
+    });
+
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logout() {
+
+    localStorage.removeItem("campusSyncUser");
+
+    localStorage.removeItem("isLoggedIn");
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+
+
+</body>
+</html>

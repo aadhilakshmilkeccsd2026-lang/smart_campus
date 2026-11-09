@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event Registration - CampusSync</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Login Protection -->
+    <script>
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.replace("login.html");
+        }
+    </script>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="brand">
+            <div class="logo-placeholder">CS</div>
+
+            <div class="brand-text">
+                <div class="brand-name">CampusSync</div>
+                <div class="brand-tagline">Your Campus, Connected.</div>
+            </div>
+        </a>
+
+        <div class="nav-menu">
+
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="campus.html">Campus</a>
+            <a href="events.html" class="active">Events</a>
+            <a href="profile.html">Profile</a>
+
+            <a
+                href="#"
+                class="login-button"
+                onclick="logout(); return false;"
+            >
+                Logout
+            </a>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- ================= PAGE HEADER ================= -->
+<section class="page-header">
+
+    <h1>Event Registration</h1>
+
+    <p>
+        Register for your selected CampusSync event
+    </p>
+
+</section>
+
+
+<!-- ================= REGISTRATION ================= -->
+<section class="section">
+
+    <div class="card registration-card">
+
+        <h2 class="section-title">
+            Event Details
+        </h2>
+
+        <div
+            id="eventDetails"
+            class="message"
+            style="margin-bottom:25px;"
+        >
+            Loading event...
+        </div>
+
+
+        <!-- Registration Message -->
+        <div
+            id="registrationMessage"
+            class="message"
+            style="display:none;"
+        ></div>
+
+
+        <!-- ================= FORM ================= -->
+        <form id="eventForm">
+
+            <!-- Name -->
+            <div class="form-group">
+
+                <label for="studentName">
+                    Student Name
+                </label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    readonly
+                >
+
+            </div>
+
+
+            <!-- Student ID -->
+            <div class="form-group">
+
+                <label for="studentId">
+                    Student ID
+                </label>
+
+                <input
+                    type="text"
+                    id="studentId"
+                    readonly
+                >
+
+            </div>
+
+
+            <!-- Phone -->
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="text"
+                    id="phone"
+                    readonly
+                >
+
+            </div>
+
+
+            <!-- Event -->
+            <div class="form-group">
+
+                <label for="eventName">
+                    Selected Event
+                </label>
+
+                <input
+                    type="text"
+                    id="eventName"
+                    readonly
+                >
+
+            </div>
+
+
+            <!-- Email -->
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email address"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Department -->
+            <div class="form-group">
+
+                <label for="department">
+                    Department
+                </label>
+
+                <input
+                    type="text"
+                    id="department"
+                    placeholder="Enter your department"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Submit -->
+            <button
+                type="submit"
+                class="btn btn-primary"
+                style="
+                    width:100%;
+                    border:none;
+                    cursor:pointer;
+                "
+            >
+                Confirm Registration
+            </button>
+
+        </form>
+
+
+        <!-- Back -->
+        <div
+            class="hero-buttons"
+            style="margin-top:20px;"
+        >
+
+            <a
+                href="events.html"
+                class="btn btn-secondary"
+            >
+                Back to Events
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <p>
+        Our digital companion for exploring, connecting and experiencing campus life
+    </p>
+
+    <p>
+        © 2026 CampusSync. All rights reserved.
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+
+    // ================= USER DATA =================
+
+    const savedUser =
+        localStorage.getItem("campusSyncUser");
+
+    let user = null;
+
+    if (savedUser) {
+        user = JSON.parse(savedUser);
+    }
+
+
+    // ================= EVENT DATA =================
+
+    const events = {
+
+        "Technical Symposium": {
+            date: "October 10, 2026",
+            time: "9:30 AM - 4:00 PM",
+            location: "Main Auditorium",
+            category: "Technical"
+        },
+
+        "Cultural Fest": {
+            date: "October 15, 2026",
+            time: "10:00 AM - 5:00 PM",
+            location: "College Campus",
+            category: "Cultural"
+        },
+
+        "Career Workshop": {
+            date: "October 20, 2026",
+            time: "10:00 AM - 1:00 PM",
+            location: "Seminar Hall",
+            category: "Career"
+        },
+
+        "Coding Challenge": {
+            date: "October 24, 2026",
+            time: "9:00 AM - 3:00 PM",
+            location: "Computer Lab",
+            category: "Technical"
+        },
+
+        "Sports Meet": {
+            date: "October 28, 2026",
+            time: "8:00 AM - 4:00 PM",
+            location: "Sports Ground",
+            category: "Sports"
+        },
+
+        "Innovation Expo": {
+            date: "November 2, 2026",
+            time: "10:00 AM - 4:00 PM",
+            location: "Innovation Centre",
+            category: "Innovation"
+        }
+
+    };
+
+
+    // ================= GET SELECTED EVENT =================
+
+    const urlParams =
+        new URLSearchParams(window.location.search);
+
+    const selectedEvent =
+        urlParams.get("event");
+
+
+    const eventDetails =
+        document.getElementById("eventDetails");
+
+    const eventName =
+        document.getElementById("eventName");
+
+
+    if (selectedEvent && events[selectedEvent]) {
+
+        const event = events[selectedEvent];
+
+
+        eventName.value =
+            selectedEvent;
+
+
+        eventDetails.innerHTML = `
+            <strong>${selectedEvent}</strong><br><br>
+            📅 ${event.date}<br>
+            🕒 ${event.time}<br>
+            📍 ${event.location}<br>
+            🏷️ ${event.category}
+        `;
+
+    } else {
+
+        eventName.value =
+            "No event selected";
+
+        eventDetails.innerHTML =
+            "Please return to the Events page and select an event.";
+
+    }
+
+
+    // ================= LOAD USER =================
+
+    if (user) {
+
+        const fullName =
+            user.fullName ||
+            (
+                (user.firstName || "") +
+                " " +
+                (user.lastName || "")
+            ).trim();
+
+
+        document.getElementById("studentName").value =
+            fullName || "Student";
+
+
+        document.getElementById("studentId").value =
+            user.studentId || "";
+
+
+        document.getElementById("phone").value =
+            user.phone ||
+            user.phoneNumber ||
+            "";
+
+    }
+
+
+    // ================= FORM SUBMIT =================
+
+    const eventForm =
+        document.getElementById("eventForm");
+
+
+    eventForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        if (!selectedEvent || !events[selectedEvent]) {
+
+            showMessage(
+                "Please select a valid event.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        const email =
+            document.getElementById("email")
+                .value.trim();
+
+        const department =
+            document.getElementById("department")
+                .value.trim();
+
+
+        // Existing registrations
+        let registrations =
+            JSON.parse(
+                localStorage.getItem("eventRegistrations") || "[]"
+            );
+
+
+        // Check duplicate registration
+        const alreadyRegistered =
+            registrations.some(function(registration) {
+
+                return (
+                    registration.event === selectedEvent &&
+                    registration.studentId === user.studentId
+                );
+
+            });
+
+
+        if (alreadyRegistered) {
+
+            showMessage(
+                "You have already registered for this event.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        // Create registration
+        const registration = {
+
+            event: selectedEvent,
+
+            date: events[selectedEvent].date,
+
+            time: events[selectedEvent].time,
+
+            location: events[selectedEvent].location,
+
+            category: events[selectedEvent].category,
+
+            studentName:
+                document.getElementById("studentName").value,
+
+            studentId:
+                document.getElementById("studentId").value,
+
+            phone:
+                document.getElementById("phone").value,
+
+            email: email,
+
+            department: department,
+
+            registeredAt:
+                new Date().toLocaleString()
+
+        };
+
+
+        registrations.push(registration);
+
+
+        // Save registration
+        localStorage.setItem(
+            "eventRegistrations",
+            JSON.stringify(registrations)
+        );
+
+
+        showMessage(
+            "Registration successful! You have been registered for " +
+            selectedEvent + ".",
+            "success"
+        );
+
+
+        // Disable submit
+        const submitButton =
+            eventForm.querySelector("button[type='submit']");
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "Registered Successfully";
+
+    });
+
+
+    // ================= MESSAGE =================
+
+    function showMessage(message, type) {
+
+        const messageBox =
+            document.getElementById(
+                "registrationMessage"
+            );
+
+
+        messageBox.textContent =
+            message;
+
+        messageBox.style.display =
+            "block";
+
+
+        if (type === "error") {
+
+            messageBox.style.background =
+                "#ffe8e8";
+
+            messageBox.style.color =
+                "#a33";
+
+            messageBox.style.border =
+                "1px solid #e5aaaa";
+
+        } else {
+
+            messageBox.style.background =
+                "#e8f7e8";
+
+            messageBox.style.color =
+                "#287a28";
+
+            messageBox.style.border =
+                "1px solid #a8d5a8";
+
+        }
+
+    }
+
+
+    // ================= LOGOUT =================
+
+    function logout() {
+
+        localStorage.removeItem("campusSyncUser");
+
+        localStorage.removeItem("isLoggedIn");
+
+        window.location.href =
+            "index.html";
+    }
+
+</script>
+
+</body>
+</html>

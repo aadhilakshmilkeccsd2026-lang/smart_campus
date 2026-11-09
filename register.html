@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register - CampusSync</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="brand">
+            <div class="logo-placeholder">CS</div>
+
+            <div class="brand-text">
+                <div class="brand-name">CampusSync</div>
+                <div class="brand-tagline">Your Campus, Connected.</div>
+            </div>
+        </a>
+
+        <div class="nav-menu">
+
+            <a href="index.html">Home</a>
+
+            <a href="login.html">Login</a>
+
+            <a href="register.html" class="active">Register</a>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- ================= REGISTER PAGE ================= -->
+<section class="registration-layout">
+
+    <div class="card registration-card">
+
+        <h1 class="section-title">Create Account</h1>
+
+        <p class="section-subtitle">
+            Register your student account to access CampusSync.
+        </p>
+
+
+        <!-- MESSAGE -->
+        <div
+            id="registerMessage"
+            class="message"
+            style="display:none;"
+        ></div>
+
+
+        <!-- ================= REGISTER FORM ================= -->
+        <form id="registerForm">
+
+            <!-- First Name -->
+            <div class="form-group">
+
+                <label for="firstName">
+                    First Name
+                </label>
+
+                <input
+                    type="text"
+                    id="firstName"
+                    placeholder="Enter your first name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Last Name -->
+            <div class="form-group">
+
+                <label for="lastName">
+                    Last Name
+                </label>
+
+                <input
+                    type="text"
+                    id="lastName"
+                    placeholder="Enter your last name"
+                    
+                >
+
+            </div>
+
+
+            <!-- Student ID -->
+            <div class="form-group">
+
+                <label for="studentId">
+                    Student ID
+                </label>
+
+                <input
+                    type="text"
+                    id="studentId"
+                    placeholder="Enter your student ID"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Phone Number -->
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter 10-digit phone number"
+                    maxlength="10"
+                    inputmode="numeric"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Academic Year -->
+            <div class="form-group">
+
+                <label for="year">
+                    Academic Year
+                </label>
+
+                <select id="year" required>
+
+                    <option value="">
+                        Select your year
+                    </option>
+
+                    <option value="First Year">
+                        First Year
+                    </option>
+
+                    <option value="Second Year">
+                        Second Year
+                    </option>
+
+                    <option value="Third Year">
+                        Third Year
+                    </option>
+
+                    <option value="Final Year">
+                        Final Year
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Password -->
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div style="position:relative;">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Minimum 6 characters"
+                        minlength="6"
+                        required
+                        style="padding-right:50px;"
+                    >
+
+                    <button
+                        type="button"
+                        id="togglePassword"
+                        aria-label="Show password"
+                        style="
+                            position:absolute;
+                            right:10px;
+                            top:50%;
+                            transform:translateY(-50%);
+                            border:none;
+                            background:none;
+                            cursor:pointer;
+                            font-size:18px;
+                        "
+                    >
+                        ◯
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <div style="position:relative;">
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Re-enter your password"
+                        minlength="6"
+                        required
+                        style="padding-right:50px;"
+                    >
+
+                    <button
+                        type="button"
+                        id="toggleConfirmPassword"
+                        aria-label="Show password"
+                        style="
+                            position:absolute;
+                            right:10px;
+                            top:50%;
+                            transform:translateY(-50%);
+                            border:none;
+                            background:none;
+                            cursor:pointer;
+                            font-size:18px;
+                        "
+                    >
+                        ◯
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Register Button -->
+            <button
+                type="submit"
+                class="btn btn-primary"
+                style="
+                    width:100%;
+                    border:none;
+                    cursor:pointer;
+                "
+            >
+                Create Account
+            </button>
+
+        </form>
+
+
+        <!-- Login Link -->
+        <p style="text-align:center; margin-top:20px;">
+
+            Already have an account?
+
+            <a href="login.html">
+                Login here
+            </a>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <p>
+        Our digital companion for exploring, connecting and experiencing campus life
+    </p>
+
+    <p>
+        © 2026 CampusSync. All rights reserved.
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+
+    const registerForm =
+        document.getElementById("registerForm");
+
+    const registerMessage =
+        document.getElementById("registerMessage");
+
+
+    // ================= PASSWORD TOGGLE =================
+
+    const passwordInput =
+        document.getElementById("password");
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+
+    togglePassword.addEventListener("click", function () {
+
+        if (passwordInput.type === "password") {
+
+            passwordInput.type = "text";
+
+            togglePassword.textContent = "◉";
+
+            togglePassword.setAttribute(
+                "aria-label",
+                "Hide password"
+            );
+
+        } else {
+
+            passwordInput.type = "password";
+
+            togglePassword.textContent = "◯";
+
+            togglePassword.setAttribute(
+                "aria-label",
+                "Show password"
+            );
+        }
+
+    });
+
+
+    // ================= CONFIRM PASSWORD TOGGLE =================
+
+    const confirmPasswordInput =
+        document.getElementById("confirmPassword");
+
+    const toggleConfirmPassword =
+        document.getElementById("toggleConfirmPassword");
+
+
+    toggleConfirmPassword.addEventListener("click", function () {
+
+        if (confirmPasswordInput.type === "password") {
+
+            confirmPasswordInput.type = "text";
+
+            toggleConfirmPassword.textContent = "◉";
+
+            toggleConfirmPassword.setAttribute(
+                "aria-label",
+                "Hide password"
+            );
+
+        } else {
+
+            confirmPasswordInput.type = "password";
+
+            toggleConfirmPassword.textContent = "◯";
+
+            toggleConfirmPassword.setAttribute(
+                "aria-label",
+                "Show password"
+            );
+        }
+
+    });
+
+
+    // ================= PHONE NUMBER =================
+
+    const phoneInput =
+        document.getElementById("phone");
+
+
+    phoneInput.addEventListener("input", function () {
+
+        // Allow numbers only
+        this.value =
+            this.value.replace(/\D/g, "");
+
+    });
+
+
+    // ================= REGISTER =================
+
+    registerForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+
+        const firstName =
+            document.getElementById("firstName")
+                .value.trim();
+
+        const lastName =
+            document.getElementById("lastName")
+                .value.trim();
+
+        const studentId =
+            document.getElementById("studentId")
+                .value.trim();
+
+        const phone =
+            document.getElementById("phone")
+                .value.trim();
+
+        const year =
+            document.getElementById("year")
+                .value;
+
+        const password =
+            passwordInput.value;
+
+        const confirmPassword =
+            confirmPasswordInput.value;
+
+
+        // ================= VALIDATION =================
+
+        if (phone.length !== 10) {
+
+            showMessage(
+                "Phone number must contain exactly 10 digits.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        if (!/^\d{10}$/.test(phone)) {
+
+            showMessage(
+                "Please enter a valid 10-digit phone number.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        if (password.length < 6) {
+
+            showMessage(
+                "Password must contain at least 6 characters.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        if (password !== confirmPassword) {
+
+            showMessage(
+                "Passwords do not match.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        // ================= CHECK EXISTING ACCOUNT =================
+
+        const existingUser =
+            localStorage.getItem("campusSyncUser");
+
+
+        if (existingUser) {
+
+            const oldUser =
+                JSON.parse(existingUser);
+
+
+            if (oldUser.studentId === studentId) {
+
+                showMessage(
+                    "This Student ID is already registered. Please login.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (
+                oldUser.phone === phone ||
+                oldUser.phoneNumber === phone
+            ) {
+
+                showMessage(
+                    "This phone number is already registered. Please login.",
+                    "error"
+                );
+
+                return;
+            }
+        }
+
+
+        // ================= CREATE USER =================
+
+        const user = {
+
+            firstName: firstName,
+
+            lastName: lastName,
+
+            fullName:
+                firstName + " " + lastName,
+
+            studentId: studentId,
+
+            phone: phone,
+
+            year: year,
+
+            password: password
+
+        };
+
+
+        // Save user
+        localStorage.setItem(
+            "campusSyncUser",
+            JSON.stringify(user)
+        );
+
+
+        // Login automatically
+        localStorage.setItem(
+            "isLoggedIn",
+            "true"
+        );
+
+
+        // Redirect
+        window.location.href =
+            "dashboard.html";
+
+    });
+
+
+    // ================= MESSAGE FUNCTION =================
+
+    function showMessage(message, type) {
+
+        registerMessage.textContent =
+            message;
+
+        registerMessage.style.display =
+            "block";
+
+
+        if (type === "error") {
+
+            registerMessage.style.background =
+                "#ffe8e8";
+
+            registerMessage.style.color =
+                "#a33";
+
+            registerMessage.style.border =
+                "1px solid #e5aaaa";
+
+        } else {
+
+            registerMessage.style.background =
+                "#e8f7e8";
+
+            registerMessage.style.color =
+                "#287a28";
+
+            registerMessage.style.border =
+                "1px solid #a8d5a8";
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile - CampusSync</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Login Protection -->
+    <script>
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.replace("login.html");
+        }
+    </script>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="brand">
+            <div class="logo-placeholder">CS</div>
+
+            <div class="brand-text">
+                <div class="brand-name">CampusSync</div>
+                <div class="brand-tagline">Your Campus, Connected.</div>
+            </div>
+        </a>
+
+        <div class="nav-menu">
+
+            <a href="index.html">Home</a>
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="campus.html">Campus</a>
+
+            <a href="events.html">Events</a>
+
+            <a href="profile.html" class="active">Profile</a>
+
+            <a href="#" class="login-button" onclick="logout(); return false;">
+                Logout
+            </a>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- ================= PAGE HEADER ================= -->
+<section class="page-header">
+    <h1>My Profile</h1>
+    <p>View and manage your CampusSync account</p>
+</section>
+
+
+<!-- ================= PROFILE SECTION ================= -->
+<section class="section">
+
+    <div class="profile-layout">
+
+        <!-- PROFILE CARD -->
+        <div class="card profile-card">
+
+            <div class="profile-avatar" id="profileAvatar">
+                U
+            </div>
+
+            <h2 id="profileName">Student Name</h2>
+
+            <p id="profileStudentId">Student ID</p>
+
+            <div class="message success-message">
+                Active Account
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE DETAILS -->
+        <div class="card">
+
+            <h2 class="section-title">Personal Information</h2>
+
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" id="firstName" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" id="lastName" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Student ID</label>
+                <input type="text" id="studentId" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text" id="phone" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Academic Year</label>
+                <input type="text" id="year" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Account Type</label>
+                <input type="text" value="Student" readonly>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ACCOUNT ================= -->
+<section class="section">
+
+    <h2 class="section-title">About Your CampusSync Account</h2>
+
+    <p class="section-subtitle">
+        Your CampusSync profile stores your basic student information
+        and helps you access campus features securely.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">👤</div>
+            <h3>Student Profile</h3>
+            <p>
+                Your registered student information is displayed here
+                for easy reference.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🔒</div>
+            <h3>Secure Access</h3>
+            <p>
+                Campus pages are available only after you sign in
+                to your CampusSync account.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🎓</div>
+            <h3>Campus Services</h3>
+            <p>
+                Quickly access your dashboard, campus facilities,
+                and upcoming events.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ACCOUNT ACTIONS ================= -->
+<section class="section">
+
+    <div class="card">
+
+        <h2>Account Actions</h2>
+
+        <p class="section-subtitle">
+            Use the buttons below to navigate or sign out of your account.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="dashboard.html" class="btn btn-primary">
+                Back to Dashboard
+            </a>
+
+            <a href="#" class="btn btn-secondary"
+               onclick="logout(); return false;">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <p>
+        Our digital companion for exploring, connecting and experiencing campus life
+    </p>
+
+    <p>
+        © 2026 CampusSync. All rights reserved.
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+
+    // Get registered user
+    const userData = localStorage.getItem("campusSyncUser");
+
+    if (userData) {
+
+        const user = JSON.parse(userData);
+
+        const firstName = user.firstName || "";
+        const lastName = user.lastName || "";
+
+        const fullName =
+            user.fullName ||
+            (firstName + " " + lastName).trim() ||
+            "Student";
+
+        const studentId =
+            user.studentId || "Not available";
+
+        const phone =
+            user.phone ||
+            user.phoneNumber ||
+            "Not available";
+
+        const year =
+            user.year ||
+            user.academicYear ||
+            "Not available";
+
+
+        // Profile heading
+        document.getElementById("profileName").textContent = fullName;
+
+        document.getElementById("profileStudentId").textContent =
+            studentId;
+
+
+        // Avatar
+        document.getElementById("profileAvatar").textContent =
+            firstName
+                ? firstName.charAt(0).toUpperCase()
+                : fullName.charAt(0).toUpperCase();
+
+
+        // Personal information
+        document.getElementById("firstName").value =
+            firstName || "Not available";
+
+        document.getElementById("lastName").value =
+            lastName || "Not available";
+
+        document.getElementById("studentId").value =
+            studentId;
+
+        document.getElementById("phone").value =
+            phone;
+
+        document.getElementById("year").value =
+            year;
+    }
+
+
+    // Logout
+    function logout() {
+
+        localStorage.removeItem("campusSyncUser");
+        localStorage.removeItem("isLoggedIn");
+
+        window.location.href = "index.html";
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusSync - Your Campus, Connected</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Professional Welcome Title -->
+    <style>
+        .welcome-title {
+            font-size: 44px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .welcome-title span {
+            font-size: 44px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+            .welcome-title {
+                font-size: 32px;
+                white-space: normal;
+            }
+
+            .welcome-title span {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+<header class="navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="brand">
+            <div class="logo-placeholder">CS</div>
+
+            <div class="brand-text">
+                <div class="brand-name">CampusSync</div>
+                <div class="brand-tagline">Your Campus, Connected</div>
+            </div>
+        </a>
+
+        <nav class="nav-menu">
+
+            <a href="index.html" class="active">Home</a>
+
+            <a href="#dashboard" id="dashboardNav">
+                Dashboard
+            </a>
+
+            <a href="#campus" id="campusNav">
+                Campus
+            </a>
+
+            <a href="#events" id="eventsNav">
+                Events
+            </a>
+
+            <a href="#profile" id="profileNav">
+                Profile
+            </a>
+
+            <a href="login.html"
+               id="loginLogoutNav"
+               class="login-button">
+                Login
+            </a>
+
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HERO SECTION
+========================= -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1 class="welcome-title">
+            Welcome to <span>CampusSync</span>
+        </h1>
+
+        <p>
+            Your Campus, Connected.
+            Explore facilities, discover events,
+            and stay connected with your campus.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#dashboard"
+               id="heroDashboardBtn"
+               class="btn btn-primary">
+                Explore Dashboard
+            </a>
+
+            <a href="#events"
+               id="heroEventsBtn"
+               class="btn btn-secondary">
+                View Events
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DASHBOARD SECTION
+========================= -->
+<section class="section" id="dashboard">
+
+    <h2 class="section-title">
+        Campus Dashboard
+    </h2>
+
+    <p class="section-subtitle">
+        Everything you need to stay connected with your campus.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">
+                📊
+            </div>
+
+            <h3>Dashboard</h3>
+
+            <p>
+                View your campus activities,
+                important information and quick access options.
+            </p>
+
+            <a href="login.html"
+               id="viewDashboardBtn"
+               class="btn btn-primary">
+                View Dashboard
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🏫
+            </div>
+
+            <h3>Campus</h3>
+
+            <p>
+                Explore campus facilities,
+                locations and useful information.
+            </p>
+
+            <a href="login.html"
+               id="viewCampusBtn"
+               class="btn btn-primary">
+                Explore Campus
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                📅
+            </div>
+
+            <h3>Events</h3>
+
+            <p>
+                Discover upcoming technical,
+                cultural, sports and academic events.
+            </p>
+
+            <a href="login.html"
+               id="viewEventsCardBtn"
+               class="btn btn-primary">
+                View Events
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                👤
+            </div>
+
+            <h3>Profile</h3>
+
+            <p>
+                View your student information
+                and CampusSync account details.
+            </p>
+
+            <a href="login.html"
+               id="viewProfileBtn"
+               class="btn btn-primary">
+                View Profile
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CAMPUS SECTION
+========================= -->
+<section class="section" id="campus">
+
+    <h2 class="section-title">
+        Explore Our Campus
+    </h2>
+
+    <p class="section-subtitle">
+        Find important facilities and places around your campus.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">
+                📚
+            </div>
+
+            <h3>Central Library</h3>
+
+            <p>
+                Access books, study resources
+                and academic materials.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                💻
+            </div>
+
+            <h3>Computer Lab</h3>
+
+            <p>
+                Modern computing facilities
+                for learning and projects.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🏟️
+            </div>
+
+            <h3>Sports Ground</h3>
+
+            <p>
+                Facilities for sports,
+                fitness and outdoor activities.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🎭
+            </div>
+
+            <h3>Main Auditorium</h3>
+
+            <p>
+                A space for seminars,
+                cultural programs and events.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div style="text-align:center; margin-top:30px;">
+
+        <a href="login.html"
+           id="exploreCampusBtn"
+           class="btn btn-primary">
+            Explore All Facilities
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EVENTS SECTION
+========================= -->
+<section class="section" id="events">
+
+    <h2 class="section-title">
+        Upcoming Events
+    </h2>
+
+    <p class="section-subtitle">
+        Stay updated with what's happening on campus.
+    </p>
+
+
+    <div class="events-grid">
+
+        <!-- Event 1 -->
+        <div class="event-card">
+
+            <div class="event-date">
+                <strong>10</strong>
+                <span>OCT</span>
+            </div>
+
+            <div class="event-content">
+
+                <h3>
+                    Technical Symposium
+                </h3>
+
+                <p>
+                    Explore technology,
+                    innovation and technical ideas.
+                </p>
+
+                <small>
+                    📍 Main Auditorium
+                    <br>
+                    🕘 9:30 AM - 4:00 PM
+                </small>
+
+                <br><br>
+
+                <a href="login.html"
+                   class="btn btn-primary eventRegisterBtn"
+                   data-event="Technical Symposium">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Event 2 -->
+        <div class="event-card">
+
+            <div class="event-date">
+                <strong>15</strong>
+                <span>OCT</span>
+            </div>
+
+            <div class="event-content">
+
+                <h3>
+                    Cultural Fest
+                </h3>
+
+                <p>
+                    Celebrate creativity,
+                    culture and student talent.
+                </p>
+
+                <small>
+                    📍 College Campus
+                    <br>
+                    🕙 10:00 AM - 5:00 PM
+                </small>
+
+                <br><br>
+
+                <a href="login.html"
+                   class="btn btn-primary eventRegisterBtn"
+                   data-event="Cultural Fest">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Event 3 -->
+        <div class="event-card">
+
+            <div class="event-date">
+                <strong>20</strong>
+                <span>OCT</span>
+            </div>
+
+            <div class="event-content">
+
+                <h3>
+                    Career Workshop
+                </h3>
+
+                <p>
+                    Learn about career opportunities
+                    and professional development.
+                </p>
+
+                <small>
+                    📍 Seminar Hall
+                    <br>
+                    🕙 10:00 AM - 1:00 PM
+                </small>
+
+                <br><br>
+
+                <a href="login.html"
+                   class="btn btn-primary eventRegisterBtn"
+                   data-event="Career Workshop">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Event 4 -->
+        <div class="event-card">
+
+            <div class="event-date">
+                <strong>24</strong>
+                <span>OCT</span>
+            </div>
+
+            <div class="event-content">
+
+                <h3>
+                    Coding Challenge
+                </h3>
+
+                <p>
+                    Test your programming skills
+                    through an exciting coding challenge.
+                </p>
+
+                <small>
+                    📍 Computer Lab
+                    <br>
+                    🕘 9:00 AM - 3:00 PM
+                </small>
+
+                <br><br>
+
+                <a href="login.html"
+                   class="btn btn-primary eventRegisterBtn"
+                   data-event="Coding Challenge">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Event 5 -->
+        <div class="event-card">
+
+            <div class="event-date">
+                <strong>28</strong>
+                <span>OCT</span>
+            </div>
+
+            <div class="event-content">
+
+                <h3>
+                    Sports Meet
+                </h3>
+
+                <p>
+                    Participate in sports
+                    and campus athletic activities.
+                </p>
+
+                <small>
+                    📍 Sports Ground
+                    <br>
+                    🕗 8:00 AM - 4:00 PM
+                </small>
+
+                <br><br>
+
+                <a href="login.html"
+                   class="btn btn-primary eventRegisterBtn"
+                   data-event="Sports Meet">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Event 6 -->
+        <div class="event-card">
+
+            <div class="event-date">
+                <strong>02</strong>
+                <span>NOV</span>
+            </div>
+
+            <div class="event-content">
+
+                <h3>
+                    Innovation Expo
+                </h3>
+
+                <p>
+                    Discover innovative projects,
+                    ideas and student creations.
+                </p>
+
+                <small>
+                    📍 Innovation Centre
+                    <br>
+                    🕙 10:00 AM - 4:00 PM
+                </small>
+
+                <br><br>
+
+                <a href="login.html"
+                   class="btn btn-primary eventRegisterBtn"
+                   data-event="Innovation Expo">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div style="text-align:center; margin-top:35px;">
+
+        <a href="login.html"
+           id="viewAllEventsBtn"
+           class="btn btn-primary">
+            View All Events
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROFILE SECTION
+========================= -->
+<section class="section" id="profile">
+
+    <h2 class="section-title">
+        Your Profile
+    </h2>
+
+    <p class="section-subtitle">
+        Manage and view your CampusSync account information.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">
+                👤
+            </div>
+
+            <h3>
+                Student Profile
+            </h3>
+
+            <p>
+                View your name, student ID,
+                phone number and academic year.
+            </p>
+
+            <a href="login.html"
+               id="viewProfileSectionBtn"
+               class="btn btn-primary">
+                Open Profile
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HOW CAMPUSSYNC WORKS
+========================= -->
+<section class="section">
+
+    <h2 class="section-title">
+        How CampusSync Works
+    </h2>
+
+    <p class="section-subtitle">
+        A simple way to stay connected with your campus.
+    </p>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">
+                1️⃣
+            </div>
+
+            <h3>
+                Create Account
+            </h3>
+
+            <p>
+                Register using your student
+                information to create your account.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                2️⃣
+            </div>
+
+            <h3>
+                Explore Campus
+            </h3>
+
+            <p>
+                Find facilities, events
+                and useful campus information.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                3️⃣
+            </div>
+
+            <h3>
+                Stay Connected
+            </h3>
+
+            <p>
+                Keep track of campus activities
+                and participate in events.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+
+    <div class="footer-content">
+
+        <h3>
+            CampusSync
+        </h3>
+
+        <p>
+            Your digital companion for exploring,
+            connecting and experiencing campus life.
+        </p>
+
+        <p>
+            © 2026 CampusSync. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const isLoggedIn =
+        localStorage.getItem("isLoggedIn") === "true";
+
+
+    /* =========================
+       NAVIGATION ELEMENTS
+    ========================= */
+
+    const dashboardNav =
+        document.getElementById("dashboardNav");
+
+    const campusNav =
+        document.getElementById("campusNav");
+
+    const eventsNav =
+        document.getElementById("eventsNav");
+
+    const profileNav =
+        document.getElementById("profileNav");
+
+    const loginLogoutNav =
+        document.getElementById("loginLogoutNav");
+
+
+    /* =========================
+       LOGIN / LOGOUT NAVBAR
+    ========================= */
+
+    if (isLoggedIn) {
+
+        loginLogoutNav.textContent = "Logout";
+        loginLogoutNav.href = "#";
+
+        loginLogoutNav.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            localStorage.removeItem("campusSyncUser");
+            localStorage.removeItem("isLoggedIn");
+
+            window.location.href = "index.html";
+
+        });
+
+    } else {
+
+        loginLogoutNav.textContent = "Login";
+        loginLogoutNav.href = "login.html";
+
+    }
+
+
+    /* =========================
+       PROTECTED NAVIGATION
+    ========================= */
+
+    function setupNavigation(element, sectionId, page) {
+
+        if (!element) return;
+
+        if (isLoggedIn) {
+
+            element.href = page;
+
+        } else {
+
+            element.href = "#" + sectionId;
+
+        }
+
+    }
+
+
+    setupNavigation(
+        dashboardNav,
+        "dashboard",
+        "dashboard.html"
+    );
+
+    setupNavigation(
+        campusNav,
+        "campus",
+        "campus.html"
+    );
+
+    setupNavigation(
+        eventsNav,
+        "events",
+        "events.html"
+    );
+
+    setupNavigation(
+        profileNav,
+        "profile",
+        "profile.html"
+    );
+
+
+    /* =========================
+       HERO BUTTONS
+    ========================= */
+
+    const heroDashboardBtn =
+        document.getElementById("heroDashboardBtn");
+
+    const heroEventsBtn =
+        document.getElementById("heroEventsBtn");
+
+
+    if (isLoggedIn) {
+
+        heroDashboardBtn.href = "dashboard.html";
+        heroEventsBtn.href = "events.html";
+
+    } else {
+
+        heroDashboardBtn.href = "#dashboard";
+        heroEventsBtn.href = "#events";
+
+    }
+
+
+    /* =========================
+       DASHBOARD BUTTON
+    ========================= */
+
+    const viewDashboardBtn =
+        document.getElementById("viewDashboardBtn");
+
+    if (isLoggedIn) {
+
+        viewDashboardBtn.href = "dashboard.html";
+
+    } else {
+
+        viewDashboardBtn.href = "login.html";
+
+    }
+
+
+    /* =========================
+       CAMPUS BUTTON
+    ========================= */
+
+    const viewCampusBtn =
+        document.getElementById("viewCampusBtn");
+
+    const exploreCampusBtn =
+        document.getElementById("exploreCampusBtn");
+
+
+    if (isLoggedIn) {
+
+        viewCampusBtn.href = "campus.html";
+        exploreCampusBtn.href = "campus.html";
+
+    } else {
+
+        viewCampusBtn.href = "login.html";
+        exploreCampusBtn.href = "login.html";
+
+    }
+
+
+    /* =========================
+       EVENTS BUTTONS
+    ========================= */
+
+    const viewEventsCardBtn =
+        document.getElementById("viewEventsCardBtn");
+
+    const viewAllEventsBtn =
+        document.getElementById("viewAllEventsBtn");
+
+
+    if (isLoggedIn) {
+
+        viewEventsCardBtn.href = "events.html";
+        viewAllEventsBtn.href = "events.html";
+
+    } else {
+
+        viewEventsCardBtn.href = "login.html";
+        viewAllEventsBtn.href = "login.html";
+
+    }
+
+
+    /* =========================
+       PROFILE BUTTONS
+    ========================= */
+
+    const viewProfileBtn =
+        document.getElementById("viewProfileBtn");
+
+    const viewProfileSectionBtn =
+        document.getElementById("viewProfileSectionBtn");
+
+
+    if (isLoggedIn) {
+
+        viewProfileBtn.href = "profile.html";
+        viewProfileSectionBtn.href = "profile.html";
+
+    } else {
+
+        viewProfileBtn.href = "login.html";
+        viewProfileSectionBtn.href = "login.html";
+
+    }
+
+
+    /* =========================
+       EVENT REGISTER BUTTONS
+    ========================= */
+
+    const eventButtons =
+        document.querySelectorAll(".eventRegisterBtn");
+
+
+    eventButtons.forEach(function (button) {
+
+        button.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            const eventName =
+                button.getAttribute("data-event");
+
+
+            if (!isLoggedIn) {
+
+                window.location.href = "login.html";
+
+            } else {
+
+                window.location.href =
+                    "event-register.html?event=" +
+                    encodeURIComponent(eventName);
+
+            }
+
+        });
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
